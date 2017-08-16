@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Popup } from 'semantic-ui-react'
+import { Grid, Loader, Popup } from 'semantic-ui-react'
 import PhysicianDetail from './PhysicianDetail'
 
 const AppointmentsList = (props) => {
@@ -25,12 +25,12 @@ const AppointmentsList = (props) => {
                 {`${duration} minutes`}
               </Grid.Column>
               <Grid.Column key={appointment.physician_id}>
-                <Popup
+                {physician ? <Popup
                   trigger={<div>{physician.name}</div>}
                   content={<PhysicianDetail physician={physician} />}
                   position='bottom center'
                   on='hover'
-                />
+                /> : <Loader active />}
               </Grid.Column>
             </Grid>
           )

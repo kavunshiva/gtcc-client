@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NavBar from '../components/NavBar.js'
 import AppointmentsPage from '../components/AppointmentsPage.js'
+import { PhysiciansAdapter } from '../adapters'
 import MikeRossImg from '../assets/images/MikeRoss.jpg'
 import GregHouseImg from '../assets/images/GregHouse.jpg'
 
@@ -13,16 +14,7 @@ export default class AppointmentsContainer extends Component {
         name: "Mike Ross",
         image: MikeRossImg
       },
-      physicians: [
-        {
-          id: 14,
-          name: "Gregory House",
-          specialization: "diagnostician",
-          education: "University of Michigan",
-          description: "An irascible genius struggling with an opiod addiction, he may just figure out what's wrong with you before it's too late.",
-          image: GregHouseImg
-        }
-      ],
+      physicians: [],
       appointments: [
         {
           "id" : 695,
@@ -40,6 +32,14 @@ export default class AppointmentsContainer extends Component {
 
   getPhysicianById(id){
     return this.state.physicians.find(physician => physician.id === id)
+  }
+
+  componentDidMount(){
+    PhysiciansAdapter.all().then(physicians => {
+      this.setState({
+        physicians: physicians
+      })
+    })
   }
 
   render(){
