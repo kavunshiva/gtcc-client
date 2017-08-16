@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Loader, Modal, Popup } from 'semantic-ui-react'
+import { Loader, Modal } from 'semantic-ui-react'
 import Appointment from './Appointment'
 import AppointmentDetail from './AppointmentDetail'
 
@@ -17,7 +17,7 @@ const AppointmentsList = (props) => {
               on='click'
             />
           )
-        }) : null
+        }) : <Loader active />
       }
     </div>
   )
