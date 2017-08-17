@@ -10,7 +10,7 @@ export class PhysiciansAdapter {
           name: "Gregory House",
           specialization: "diagnostician",
           education: "University of Michigan",
-          description: "An irascible genius struggling with an opiod addiction, he may just figure out what's wrong with you before it's too late.",
+          description: "An irascible genius struggling with an opioid addiction, he may just figure out what's wrong with you before it's too late.",
           image: GregHouseImg
         },
         {
